@@ -7,11 +7,11 @@ from novaclient import utils
 
 class SchedulerPartner(base.Resource):
     def __repr__(self):
-        return "<SchedulerPartner: %s>" % self.name
+        return self.scheduler_partner
 
 
 class SchedulerPartnerManager(base.Manager):
 	resource_class = SchedulerPartner
 
 	def create(self, body):
-		return self._create('/os-scheduler-partner', body, 'scheduler_partner')
+		return self._create('/os-scheduler-partner', body, 'scheduler_partner', True)
