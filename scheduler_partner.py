@@ -2,7 +2,8 @@
 Scheduler Partner interface (v2 extension).
 """
 from novaclient import base
-from novaclient.openstack.common.gettextutils import _
+# from novaclient.openstack.common.gettextutils import _
+from novaclient.i18n import _
 from novaclient import utils
 
 class SchedulerPartner(base.Resource):
