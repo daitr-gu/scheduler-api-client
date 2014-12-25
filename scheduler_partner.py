@@ -14,5 +14,8 @@ class SchedulerPartner(base.Resource):
 class SchedulerPartnerManager(base.Manager):
 	resource_class = SchedulerPartner
 
-	def create(self, body):
-		return self._create('/os-scheduler-partner', body, 'scheduler_partner', True)
+	def create(self, ourId, body):
+		return self._create("/os-scheduler-partner/%s/provision" % ourId, body, 'scheduler_partner', True)
+
+	def estimate(self, ourId, body):
+		return self._create("/os-scheduler-partner/%s/estimate" % ourId, body, 'scheduler_partner', True)
