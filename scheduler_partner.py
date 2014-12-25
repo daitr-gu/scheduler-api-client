@@ -12,10 +12,11 @@ class SchedulerPartner(base.Resource):
 
 
 class SchedulerPartnerManager(base.Manager):
-	resource_class = SchedulerPartner
+    resource_class = SchedulerPartner
 
-	def create(self, ourId, body):
-		return self._create("/os-scheduler-partner/%s/provision" % ourId, body, 'scheduler_partner', True)
+    def create(self, ourId, body):
+        return self._create("/os-scheduler-partner/%s/provision" % ourId, body, 'scheduler_partner', True)
 
-	def estimate(self, ourId, body):
-		return self._create("/os-scheduler-partner", body, 'scheduler_partner', True)
+    def estimate(self, ourId, body):
+        return self.api.client.post('/os-scheduler-partner/%s/action' % ourId,
+                             body, 'scheduler_partner', True)
