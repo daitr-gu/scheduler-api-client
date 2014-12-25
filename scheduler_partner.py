@@ -19,4 +19,4 @@ class SchedulerPartnerManager(base.Manager):
 
     def estimate(self, ourId, body):
         return self.api.client.post('/os-scheduler-partner/%s/estimate' % ourId,
-                             body, 'scheduler_partner', True)
+                             body=body)
